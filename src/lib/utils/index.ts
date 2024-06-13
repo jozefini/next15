@@ -1,4 +1,5 @@
 export * from './checkers'
-export * from './converters'
+export * from './env'
 export * from './formatters'
+export * from './misc'
 export * from './styles'

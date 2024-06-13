@@ -1,4 +1,4 @@
-import { STR_REPLACER_PATTERN } from '@/lib/constants/utils'
+import { STR_REPLACER_PATTERN } from '@/lib/constants'
 import type { TReplacerKeys } from '@/lib/types'
 
 export function strReplacer<S extends string>(
@@ -36,4 +36,10 @@ export function toAbsNumber(
   fallbackValue: number | undefined = 0
 ): number {
   return Math.abs(toNumber(value, fallbackValue))
+}
+
+export function objectToMap<T extends Record<string, unknown>>(
+  obj: T
+): Map<keyof T, T[keyof T]> {
+  return new Map(Object.entries(obj) as [keyof T, T[keyof T]][])
 }

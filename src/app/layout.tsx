@@ -1,6 +1,8 @@
+/** eslint-disable react/no-children-prop */
+import '@/assets/styles.css'
+import AuthProvider from '@/lib/auth'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import '@/assets/styles.css'
 
 const geistSans = localFont({
   src: '../assets/fonts/GeistVF.woff',
@@ -18,7 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={geistSans.variable}>{children}</body>
+      <body className={geistSans.variable}>
+        <AuthProvider value={null}>
+          <div className="min-h-screen bg-gray-100">{children}</div>
+        </AuthProvider>
+      </body>
     </html>
   )
 }
